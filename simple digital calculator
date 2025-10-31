@@ -1,0 +1,63 @@
+#include <iostream>
+#include <cmath> // For sqrt() and pow()
+using namespace std;
+
+// Function definitions
+void addN(int a, int b) {
+    cout << "Result: " << a + b << endl;
+}
+
+void multN(int a, int b) {
+    cout << "Result: " << a * b << endl;
+}
+
+void sqrtN(int a) {
+    cout << "Result: " << sqrt(a) << endl;
+}
+
+void divN(int a, int b) {
+    if (b == 0)
+        cout << "Error! Division by zero." << endl;
+    else
+        cout << "Result: " << (float)a / b << endl;
+}
+
+void powN(int a, int b) {
+    cout << "Result: " << pow(a, b) << endl;
+}
+
+int main() {
+    int A, B;
+    char d; // Operation choice
+
+    cout << "==============================\n";
+    cout << "     FUNCTION CALCULATOR\n";
+    cout << "==============================\n";
+
+    cout << "Enter first number: ";
+    cin >> A;
+    cout << "Enter second number (if needed): ";
+    cin >> B;
+
+    cout << "\nChoose operation:\n";
+    cout << "U/u -> Add\n";
+    cout << "E/e -> Multiply\n";
+    cout << "S/s -> Square Root (of first number)\n";
+    cout << "D/d -> Divide\n";
+    cout << "P/p -> Power (A^B)\n";
+    cout << "Enter your choice: ";
+    cin >> d;
+
+    switch (tolower(d)) {
+        case 'u': addN(A, B); break;
+        case 'e': multN(A, B); break;
+        case 's': sqrtN(A); break;
+        case 'd': divN(A, B); break;
+        case 'p': powN(A, B); break;
+        default: cout << "Invalid choice!" << endl;
+    }
+
+    cout << "Enter 0 to exit." << endl;
+
+    return 0;
+}
